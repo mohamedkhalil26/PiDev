@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="606.0" prefWidth="140.0" stylesheets="@../../../../../../Downloads/EventPlanner/EventPlanner/src/main/resources/styles/button.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controller.SidebarController">
+<AnchorPane prefHeight="606.0" prefWidth="140.0" stylesheets="@styles/button.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controller.SidebarController">
    <children>
       <AnchorPane prefHeight="588.0" prefWidth="164.0">
          <children>
@@ -73,6 +73,11 @@
                   <Button fx:id="LogOut" onAction="#naviguer_a_login" styleClass="my-button2" text="Log Out">
                      <graphic>
                         <FontAwesomeIcon glyphName="SIGN_OUT" size="1.4em" styleClass="font-awesome-icon" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="chatButton" onAction="#openChatWindow" styleClass="fab">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="COMMENT" size="1.8em" styleClass="font-awesome-icon" />
                      </graphic>
                   </Button>
                </children>
