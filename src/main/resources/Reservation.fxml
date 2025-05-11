@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="tn.esprit.controller.ReservationController"
+            prefWidth="960" prefHeight="580"
+            style="-fx-background-color: #F5F5DC; -fx-border-color: #7C81AB; -fx-border-width: 2;">
+    <children>
+        <!-- Titre -->
+        <Label layoutX="20.0" layoutY="20.0" text="Gestion des Réservations" style="-fx-font-size: 18px; -fx-text-fill: #26246B;" />
+
+        <!-- ID Covoiturage -->
+        <Label layoutX="20.0" layoutY="60.0" text="ID Covoiturage :" style="-fx-text-fill: #26246B;" />
+        <TextField fx:id="txtidcovoiturage" layoutX="120.0" layoutY="56.0"
+                   prefWidth="600.0" style="-fx-background-color: white; -fx-text-fill: #26246B;" />
+
+        <!-- ID Passager -->
+        <Label layoutX="20.0" layoutY="100.0" text="ID Passager :" style="-fx-text-fill: #26246B;" />
+        <TextField fx:id="txtidpassager" layoutX="120.0" layoutY="96.0"
+                   prefWidth="600.0" style="-fx-background-color: white; -fx-text-fill: #26246B;" />
+
+        <!-- Prix -->
+        <Label layoutX="20.0" layoutY="140.0" text="Prix :" style="-fx-text-fill: #26246B;" />
+        <TextField fx:id="txtprix" layoutX="120.0" layoutY="136.0"
+                   prefWidth="600.0" style="-fx-background-color: white; -fx-text-fill: #26246B;" />
+
+        <!-- Nombre de places -->
+        <Label layoutX="20.0" layoutY="180.0" text="Nombre de places :" style="-fx-text-fill: #26246B;" />
+        <TextField fx:id="txtnombredeplaces" layoutX="120.0" layoutY="176.0"
+                   prefWidth="600.0" style="-fx-background-color: white; -fx-text-fill: #26246B;" />
+
+        <!-- Boutons -->
+        <HBox layoutX="20.0" layoutY="220.0" spacing="20">
+            <Button fx:id="ajouterBtn" text="Ajouter" onAction="#ajouterReservation"
+                    style="-fx-background-color: #7C81AB; -fx-text-fill: white; -fx-font-weight: bold;" />
+            <Button fx:id="modifierBtn" text="Modifier" onAction="#modifierReservation"
+                    style="-fx-background-color: #7C81AB; -fx-text-fill: white; -fx-font-weight: bold;" />
+            <Button fx:id="supprimerBtn" text="Supprimer" onAction="#supprimerReservation"
+                    style="-fx-background-color: #7C81AB; -fx-text-fill: white; -fx-font-weight: bold;" />
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10" />
+            </padding>
+        </HBox>
+
+        <!-- Zone centrale : TableView + QR Code -->
+        <HBox layoutX="20.0" layoutY="270.0" spacing="20">
+            <!-- TableView -->
+            <TableView fx:id="tableViewReservations" prefWidth="720.0" prefHeight="270.0">
+                <columns>
+                    <TableColumn fx:id="idcovoiturageCol" text="ID Covoiturage" prefWidth="180" />
+                    <TableColumn fx:id="passagerCol" text="ID Passager" prefWidth="180" />
+                    <TableColumn fx:id="prixCol" text="Prix" prefWidth="180" />
+                    <TableColumn fx:id="nbredeplacesCol" text="Nombre de Places" prefWidth="180" />
+                </columns>
+            </TableView>
+
+            <!-- QR Code + Bouton confirmation -->
+            <VBox spacing="10">
+                <ImageView fx:id="qrCodeImageView" fitWidth="200" fitHeight="200" />
+                <Button text="Confirmer Réservation" onAction="#confirmerReservation"
+                        style="-fx-background-color: #5DAE8B; -fx-text-fill: white; -fx-font-weight: bold;" />
+            </VBox>
+        </HBox>
+
+    </children>
+</AnchorPane>
