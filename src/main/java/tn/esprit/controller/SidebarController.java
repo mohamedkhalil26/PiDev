@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import tn.esprit.entites.UtilisateurConnecte;
 
 import java.io.IOException;
 
@@ -46,7 +47,19 @@ public class SidebarController {
 
     @FXML
     void naviguer_a_avis(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/afficher_avis.fxml"));
+            Parent root = loader.load();
 
+            // Get the current stage from the button (if applicable)
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Afficher avis");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace(); // Handle exception if the FXML loading fails
+        }
     }
 
     @FXML
@@ -74,7 +87,20 @@ public class SidebarController {
 
     @FXML
     void naviguer_a_login(ActionEvent event) {
+        UtilisateurConnecte.getInstance().setUtilisateurConnecte(null);
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/login.fxml"));
+            Parent root = loader.load();
 
+            // Get the current stage from the button (if applicable)
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("LOGIN");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace(); // Handle exception if the FXML loading fails
+        }
     }
 
     @FXML

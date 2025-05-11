@@ -19,10 +19,7 @@
         <URL value="@styles.css" />
     </stylesheets>
 
-    <!-- Background Image -->
-    <ImageView fitHeight="400" fitWidth="600" preserveRatio="false">
-        <Image url="@logo.png.png" />
-    </ImageView>
+
 
     <!-- Overlay for better readability (reduced opacity) -->
     <Rectangle fill="#2A2A72" height="400" opacity="0.3" width="600" />
