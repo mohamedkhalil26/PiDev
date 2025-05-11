@@ -1,0 +1,51 @@
+/* Input fields style */
+.input-field {
+    -fx-pref-width: 200px; /* Reduced width */
+    -fx-padding: 8px; /* Reduced padding */
+    -fx-background-radius: 8px;
+    -fx-border-color: #B0A295;
+    -fx-border-radius: 8px;
+    -fx-font-size: 14px;
+    -fx-background-color: #F2F2F5;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+/* Forgot Password Link */
+.forgot-password-link {
+    -fx-text-fill: #F3CE5D; /* Updated color */
+    -fx-font-size: 12px;
+    -fx-underline: true;
+    -fx-cursor: hand;
+}
+
+.forgot-password-link:hover {
+    -fx-text-fill: #2A2A72; /* Hover effect */
+}
+
+/* Login Button */
+.login-button {
+    -fx-background-color: linear-gradient(to bottom right, #7C81AB, #2A2A72);
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-padding: 10px 40px;
+    -fx-background-radius: 10px;
+    -fx-border: none;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 2);
+}
+
+.login-button:hover {
+    -fx-background-color: linear-gradient(to bottom right, #2A2A72, #7C81AB);
+}
+
+/* Create Account Link */
+.create-account-link {
+    -fx-text-fill: #F3CE5D;
+    -fx-font-size: 12px;
+    -fx-underline: true;
+    -fx-cursor: hand;
+}
+
+.create-account-link:hover {
+    -fx-text-fill: #2A2A72;
+}
