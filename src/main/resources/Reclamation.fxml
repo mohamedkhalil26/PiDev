@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="tn.esprit.controller.ReclamationController"
+            prefWidth="960" prefHeight="600"
+            style="-fx-background-color: #F5F5DC; -fx-border-color: #7C81AB; -fx-border-width: 2;">
+    <children>
+        <VBox layoutX="20.0" layoutY="20.0" spacing="15">
+            <!-- Titre -->
+            <Label text="Gestion des Réclamations"
+                   style="-fx-font-size: 22px; -fx-text-fill: #26246B; -fx-font-weight: bold;" />
+
+            <!-- Formulaire -->
+            <GridPane hgap="10" vgap="10">
+                <columnConstraints>
+                    <ColumnConstraints minWidth="120"/>
+                    <ColumnConstraints minWidth="600"/>
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints minHeight="30"/>
+                </rowConstraints>
+
+                <Label text="Sujet :" style="-fx-text-fill: #26246B;" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="sujetField" style="-fx-background-color: white; -fx-text-fill: #26246B;"
+                           GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Description :" style="-fx-text-fill: #26246B;" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextArea fx:id="descriptionArea" prefHeight="60" style="-fx-background-color: white; -fx-text-fill: #26246B;"
+                          GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label text="ID Réservation :" style="-fx-text-fill: #26246B;" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="reservationIdField" style="-fx-background-color: white; -fx-text-fill: #26246B;"
+                           GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                <Label text="Statut :" style="-fx-text-fill: #26246B;" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <TextField fx:id="statutField" style="-fx-background-color: white; -fx-text-fill: #26246B;"
+                           GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+            </GridPane>
+
+            <!-- Boutons CRUD -->
+            <HBox spacing="20" alignment="CENTER">
+                <Button text="Ajouter" onAction="#ajouterReclamation"
+                        style="-fx-background-color: #7C81AB; -fx-text-fill: white; -fx-font-weight: bold;" />
+                <Button fx:id="modifierBtn" text="Modifier" onAction="#modifierReclamation"
+                        style="-fx-background-color: #7C81AB; -fx-text-fill: white; -fx-font-weight: bold;" />
+                <Button fx:id="supprimerBtn" text="Supprimer" onAction="#supprimerReclamation"
+                        style="-fx-background-color: #7C81AB; -fx-text-fill: white; -fx-font-weight: bold;" />
+            </HBox>
+
+            <!-- Zone de recherche -->
+            <HBox spacing="10" alignment="CENTER">
+                <padding>
+                    <Insets top="10.0" right="0.0" bottom="10.0" left="0.0" />
+                </padding>
+                <TextField fx:id="searchSujetField" promptText="Rechercher par sujet" />
+                <TextField fx:id="searchDescriptionField" promptText="Rechercher par description" />
+                <TextField fx:id="searchReservationIdField" promptText="ID Réservation" />
+                <ComboBox fx:id="searchStatutCombo" promptText="Statut">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="EN_ATTENTE" />
+                            <String fx:value="TRAITEE" />
+                            <String fx:value="REJETEE" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+                <Button fx:id="searchButton" text="Rechercher" onAction="#rechercherReclamations" />
+                <Button fx:id="resetButton" text="Réinitialiser" onAction="#resetRecherche" />
+            </HBox>
+
+            <!-- TableView des réclamations -->
+            <TableView fx:id="tableViewReclamations" prefWidth="900.0" prefHeight="250.0">
+                <columns>
+                    <TableColumn fx:id="idCol" text="ID" prefWidth="50" />
+                    <TableColumn fx:id="sujetCol" text="Sujet" prefWidth="150" />
+                    <TableColumn fx:id="descriptionCol" text="Description" prefWidth="250" />
+                    <TableColumn fx:id="reservationIdCol" text="ID Réservation" prefWidth="150" />
+                    <TableColumn fx:id="statutCol" text="Statut" prefWidth="150" />
+                </columns>
+            </TableView>
+        </VBox>
+    </children>
+</AnchorPane>

@@ -1,0 +1,42 @@
+.root {
+    -fx-background-color: #f4f4f4;
+    -fx-font-family: "Arial";
+}
+
+.title-label {
+    -fx-text-fill: #333;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.role-label {
+    -fx-text-fill: #555;
+    -fx-font-size: 14px;
+    -fx-padding: 5px;
+}
+
+TextField, PasswordField {
+    -fx-pref-width: 250px;
+    -fx-padding: 8px;
+    -fx-background-radius: 5px;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 5px;
+}
+
+CheckBox {
+    -fx-text-fill: #555;
+}
+
+.signup-button {
+    -fx-background-color: #007bff;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 16px;
+    -fx-background-radius: 5px;
+    -fx-border: none;
+    -fx-cursor: hand;
+}
+
+.signup-button:hover {
+    -fx-background-color: #0056b3;
+}

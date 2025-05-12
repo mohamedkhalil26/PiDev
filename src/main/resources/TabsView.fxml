@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controller.TabsViewController">
+    <left>
+        <fx:include source="SideBarBack.fxml"/>
+    </left>
+    <center>
+        <TabPane fx:id="tabPane">
+            <tabs>
+                <Tab fx:id="tabReclamations" text="Réclamations">
+                    <AnchorPane>
+                        <fx:include source="Reclamation.fxml"/>
+                    </AnchorPane>
+                </Tab>
+                <Tab fx:id="tabReservations" text="Réservations">
+                    <AnchorPane>
+                        <fx:include source="Reservation.fxml"/>
+                    </AnchorPane>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </center>
+</BorderPane>
