@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="606.0" prefWidth="140.0" stylesheets="@styles/button.css"
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="tn.esprit.controller.SidebarController">
+   <children>
+      <AnchorPane prefHeight="588.0" prefWidth="164.0">
+         <children>
+            <VBox layoutY="-4.0" prefHeight="616.0" prefWidth="174.0"
+                  styleClass="sidebar"
+                  AnchorPane.bottomAnchor="-24.0"
+                  AnchorPane.leftAnchor="0"
+                  AnchorPane.rightAnchor="-10.0"
+                  AnchorPane.topAnchor="-4.0">
+               <children>
+                  <ImageView fitHeight="130.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true"
+                             style="-fx-translate-x: 23; -fx-translate-y: 6;">
+                     <image>
+                        <Image url="@logo.png.png"/>
+                     </image>
+                     <effect>
+                        <InnerShadow/>
+                     </effect>
+                  </ImageView>
+
+                  <Button fx:id="Reservation" onAction="#naviguer_a_reservation" styleClass="my-button2" text="Reservation">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="CALENDAR_ALT" size="1.4em" styleClass="font-awesome-icon"/>
+                     </graphic>
+                  </Button>
+
+                  <Button fx:id="Utilisateur" onAction="#naviguer_a_utilisateur" styleClass="my-button2" text="Utilisateur">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="USERS" size="1.4em" styleClass="font-awesome-icon"/>
+                     </graphic>
+                  </Button>
+
+                  <Button fx:id="Voitures" onAction="#naviguer_a_voitures" styleClass="my-button2" text="Voitures">
+                     <graphic>
+                        <FontAwesomeIcon size="1.4em" styleClass="font-awesome-icon"/>
+                     </graphic>
+                  </Button>
+
+                  <Button fx:id="Covoiturages" onAction="#naviguer_a_covoiturages" styleClass="my-button2" text="Covoiturages">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="TOOLS" size="1.4em" styleClass="font-awesome-icon"/>
+                     </graphic>
+                  </Button>
+
+                  <Button fx:id="Paiements" onAction="#naviguer_a_paiements" styleClass="my-button2" text="Paiement">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="TOOLS" size="1.4em" styleClass="font-awesome-icon"/>
+                     </graphic>
+                  </Button>
+
+                  <Button fx:id="Notification" onAction="#naviguer_a_notifiaction" styleClass="my-button2" text="Notification">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="USER" size="1.4em" styleClass="font-awesome-icon"/>
+                     </graphic>
+                  </Button>
+
+                  <Button fx:id="Avis" onAction="#naviguer_a_avis" styleClass="my-button2" text="Avis">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="COMMENTS" size="1.4em" styleClass="font-awesome-icon"/>
+                     </graphic>
+                  </Button>
+
+                  <Button fx:id="EditProfile" onAction="#naviguer_a_editprofile" styleClass="my-button2" text="Modifier le Profile">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="USER" size="1.4em" styleClass="font-awesome-icon"/>
+                     </graphic>
+                  </Button>
+
+                  <Button fx:id="LogOut" onAction="#naviguer_a_login" styleClass="my-button2" text="Log Out">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="SIGN_OUT" size="1.4em" styleClass="font-awesome-icon"/>
+                     </graphic>
+                  </Button>
+
+                  <Button fx:id="chatButton" onAction="#openChatWindow" styleClass="fab">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="COMMENT" size="1.8em" styleClass="font-awesome-icon"/>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

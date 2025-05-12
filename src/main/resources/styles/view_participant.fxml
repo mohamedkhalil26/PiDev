@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="550.0" prefWidth="794.0" style="-fx-background-color: #F1F2F6;" stylesheets="@styles/button.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.controllers.ViewParticipantController">
+
+    <VBox layoutX="310.0" layoutY="105.0" prefHeight="350.0" prefWidth="460.0" spacing="15.0" style="-fx-padding: 25px; -fx-background-color: white; -fx-border-radius: 0px; -fx-border-color: #053536;">
+        <effect>
+            <DropShadow color="#888888" offsetX="5.0" offsetY="5.0" radius="15.0" />
+        </effect>
+
+        <Label text="Participant Details" underline="true">
+            <font>
+                <Font name="Bookman Old Style Bold Italic" size="16.0" />
+            </font>
+        </Label>
+
+        <Label text="Name">
+            <font>
+                <Font name="Bookman Old Style" size="14.0" />
+            </font>
+        </Label>
+        <TextField fx:id="nameField" prefHeight="35.0" prefWidth="300.0" styleClass="input-field" editable="false" />
+
+        <Label text="Affiliation">
+            <font>
+                <Font name="Bookman Old Style" size="14.0" />
+            </font>
+        </Label>
+        <TextField fx:id="affiliationField" prefHeight="35.0" prefWidth="300.0" styleClass="input-field" editable="false" />
+
+        <Label text="Age">
+            <font>
+                <Font name="Bookman Old Style" size="14.0" />
+            </font>
+        </Label>
+        <TextField fx:id="ageField" prefHeight="35.0" prefWidth="300.0" styleClass="input-field" editable="false" />
+
+        <Label text="Event ID">
+            <font>
+                <Font name="Bookman Old Style" size="14.0" />
+            </font>
+        </Label>
+        <TextField fx:id="eventIdField" prefHeight="35.0" prefWidth="300.0" styleClass="input-field" editable="false" />
+
+        <Button mnemonicParsing="false" onAction="#backToList" prefHeight="31.0" prefWidth="200.0" styleClass="my-button" text="Back to Participant List" />
+    </VBox>
+
+    <ImageView fitHeight="200.0" fitWidth="286.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@images/theme.png" />
+        </image>
+    </ImageView>
+
+    <Label layoutX="318.0" layoutY="26.0" prefHeight="50.0" prefWidth="392.0" styleClass="title" text="View Participant">
+        <font>
+            <Font name="System Bold Italic" size="36.0" />
+        </font>
+    </Label>
+</AnchorPane>
