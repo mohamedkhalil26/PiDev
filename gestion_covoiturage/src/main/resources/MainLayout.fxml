@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="600" prefWidth="900" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <!-- SIDEBAR -->
+    <left>
+        <fx:include source="SideBarBack.fxml" />
+    </left>
+
+    <!-- MAIN CONTENT -->
+    <center>
+        <TabPane style="-fx-padding: 20;" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Covoiturage">
+                    <fx:include source="Covoiturage.fxml" />
+                </Tab>
+                <Tab text="Conducteur">
+                    <fx:include source="Conducteur.fxml" />
+                </Tab>
+                <Tab text="Voiture">
+                    <fx:include source="Voiture.fxml" />
+                </Tab>
+            </tabs>
+        </TabPane>
+    </center>
+</BorderPane>

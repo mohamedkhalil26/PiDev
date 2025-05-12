@@ -1,0 +1,67 @@
+.root {
+    -fx-font-family: "Arial";
+}
+
+.button {
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 2);
+    -fx-transition: -fx-background-color 0.3s;
+}
+
+.button:hover {
+    -fx-background-color: #357ABD;
+}
+
+.text-field {
+    -fx-background-color: white;
+    -fx-text-fill: #2A2A72;
+    -fx-prompt-text-fill: #7C81AB;
+}
+
+.text-area {
+    -fx-control-inner-background: white;
+    -fx-text-fill: #2A2A72;
+}
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: transparent;
+}
+
+.tab-pane .tab {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #4A90E2;
+    -fx-border-radius: 5px;
+    -fx-padding: 5px 15px;
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: #4A90E2;
+    -fx-text-fill: white;
+}
+
+.tab-pane .tab .tab-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #2A2A72;
+}
+
+.tab-pane .tab:selected .tab-label {
+    -fx-text-fill: white;
+}
+
+.web-view {
+    -fx-pref-height: 500px;
+    -fx-pref-width: 800px;
+    -fx-min-height: 500px;
+    -fx-min-width: 800px;
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-margin: 0;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+    min-height: 500px;
+    margin: 0;
+    padding: 0;
+}

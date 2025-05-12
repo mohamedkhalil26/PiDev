@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.controllers.ConducteurController"
+            prefWidth="1000.0" prefHeight="600.0"
+            style="-fx-background-color: #f0f0f0;">
+
+    <children>
+
+        <!-- Titre -->
+        <Label layoutX="20.0" layoutY="20.0" text="Gestion des Conducteurs"
+               style="-fx-font-size: 24px; -fx-text-fill: #333;" />
+
+        <!-- Champs de recherche -->
+        <HBox layoutX="20.0" layoutY="70.0" spacing="10">
+            <children>
+                <TextField fx:id="searchNomField" promptText="Nom" />
+                <TextField fx:id="searchPrenomField" promptText="Prénom" />
+                <TextField fx:id="searchEmailField" promptText="Email" />
+                <TextField fx:id="searchTelephoneField" promptText="Téléphone" />
+                <Button text="Rechercher" onAction="#searchConducteurs" />
+            </children>
+        </HBox>
+
+        <!-- Tableau -->
+        <TableView fx:id="conducteurTable" layoutX="20.0" layoutY="120.0" prefHeight="250.0" prefWidth="960.0">
+            <!-- Les colonnes sont définies dynamiquement dans le contrôleur -->
+        </TableView>
+
+        <!-- Champs d'ajout/modification -->
+        <VBox layoutX="20.0" layoutY="390.0" spacing="10">
+            <children>
+                <TextField fx:id="nomField" promptText="Nom" />
+                <TextField fx:id="prenomField" promptText="Prénom" />
+                <TextField fx:id="telephoneField" promptText="Téléphone" />
+                <TextField fx:id="emailField" promptText="Email" />
+
+                <HBox spacing="10">
+                    <children>
+                        <Button text="Ajouter / Modifier" onAction="#addConducteur" />
+                        <Button text="Supprimer" onAction="#supprimerConducteur" />
+                        <Button text="Modifier sélection" onAction="#modifierConducteur" />
+                    </children>
+                </HBox>
+
+                <Label fx:id="errorLabel" textFill="red" />
+            </children>
+        </VBox>
+
+    </children>
+</AnchorPane>
+

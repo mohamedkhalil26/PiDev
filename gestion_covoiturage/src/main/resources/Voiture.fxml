@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fitToWidth="true" xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.controllers.VoitureController"
+            style="-fx-background-color: #f0f0f0;">
+
+    <VBox spacing="15" style="-fx-padding: 25;">
+
+        <Label text="Gestion des Voitures"
+               style="-fx-font-size: 24px; -fx-text-fill: #2c3e50;" />
+
+        <!-- Section de recherche -->
+        <HBox spacing="10">
+            <TextField fx:id="searchMarqueField" promptText="Marque" />
+            <TextField fx:id="searchModeleField" promptText="Modèle" />
+            <TextField fx:id="searchImmatriculationField" promptText="Immatriculation" />
+            <Button text="Rechercher" onAction="#searchVoitures" />
+        </HBox>
+
+        <!-- Tableau des voitures -->
+        <TableView fx:id="voitureTable" prefHeight="250.0" prefWidth="920.0" />
+
+        <!-- Formulaire de saisie -->
+        <HBox spacing="10">
+            <TextField fx:id="marqueField" promptText="Marque" />
+            <TextField fx:id="modeleField" promptText="Modèle" />
+            <TextField fx:id="immatriculationField" promptText="Immatriculation" />
+            <TextField fx:id="nombre_placesField" promptText="Nombre de places" />
+            <TextField fx:id="idConducteurVoitureField" promptText="ID Conducteur" />
+        </HBox>
+
+        <!-- Boutons d'action -->
+        <HBox spacing="10">
+            <Button text="Ajouter / Modifier" onAction="#addVoiture" />
+            <Button text="Afficher" onAction="#showVoitures" />
+            <Button text="Modifier sélection" onAction="#modifierVoiture" />
+            <Button text="Supprimer" onAction="#supprimerVoiture" />
+        </HBox>
+
+        <!-- Label d'erreur -->
+        <Label fx:id="errorLabel" text="" style="-fx-text-fill: red;" />
+
+    </VBox>
+</ScrollPane>
+

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.web.WebView?>
+
+<ScrollPane fitToWidth="true" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.CovoiturageController">
+    <VBox spacing="10" style="-fx-padding: 20;">
+        <TextField fx:id="lieu_departField" promptText="Lieu de départ (ex: Paris)" />
+        <TextField fx:id="lieu_arriveeField" promptText="Lieu d'arrivée (ex: Lyon)" />
+        <TextField fx:id="date_heureField" promptText="Date et heure (yyyy-MM-dd HH:mm:ss)" />
+        <TextField fx:id="idConducteurCovoitField" promptText="ID Conducteur" />
+        <TextField fx:id="idVoitureField" promptText="ID Voiture" />
+        <TextField fx:id="places_restantesField" promptText="Places restantes" />
+        <TextField fx:id="statutField" promptText="Statut" />
+        <HBox spacing="10">
+            <Button onAction="#addCovoiturage" text="Ajouter" />
+            <Button onAction="#showCovoiturages" text="Afficher" />
+            <Button onAction="#modifierCovoiturage" text="Modifier" />
+            <Button onAction="#supprimerCovoiturage" text="Supprimer" />
+            <Button onAction="#showRoute" text="Afficher Trajet" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" />
+        </HBox>
+        <HBox spacing="10">
+            <TextField fx:id="searchLieu_departField" promptText="Rechercher par lieu de départ" />
+            <TextField fx:id="searchLieu_arriveeField" promptText="Rechercher par lieu d'arrivée" />
+            <TextField fx:id="searchDate_heureField" promptText="Rechercher par date" />
+            <Button onAction="#searchCovoiturages" text="Rechercher" />
+        </HBox>
+        <HBox spacing="10">
+            <Label fx:id="distanceLabel" text="Distance: N/A" style="-fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+            <Label fx:id="durationLabel" text="Durée: N/A" style="-fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+            <Label fx:id="errorLabel" text="" style="-fx-text-fill: #e74c3c;" />
+        </HBox>
+        <TableView fx:id="covoiturageTable" prefHeight="200" prefWidth="800" />
+        <WebView fx:id="mapView" styleClass="web-view" VBox.vgrow="ALWAYS" prefHeight="500" prefWidth="800" minHeight="500" minWidth="800" />
+    </VBox>
+</ScrollPane>

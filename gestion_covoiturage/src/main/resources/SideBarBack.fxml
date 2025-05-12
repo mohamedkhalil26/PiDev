@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="800.0" prefWidth="180.0" style="-fx-background-color: #2A2A72;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.SideBarBackController">
+    <children>
+        <VBox prefHeight="800.0" prefWidth="180.0" spacing="15" style="-fx-padding: 20;">
+            <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" translateX="18.0">
+                <image>
+                    <Image url="@logo.png" />
+                </image>
+            </ImageView>
+            <Separator style="-fx-background-color: #F3CE5D;" />
+
+            <!-- Navigation Buttons -->
+            <Button fx:id="Reservations" onAction="#Naviguer_a_Reservations" onMouseEntered="#EventsChangeStyleEntered" onMouseExited="#EventsChangeStyleExited" style="-fx-background-color: transparent; -fx-text-fill: #F2F2F5; -fx-font-size: 16px; -fx-alignment: CENTER_LEFT; -fx-padding: 10;" text="Réservations" />
+            <Button fx:id="Utilisateurs" onAction="#Naviguer_a_Utilisateurs" onMouseEntered="#UsersChangeStyleEntered" onMouseExited="#UsersChangeStyleExited" style="-fx-background-color: transparent; -fx-text-fill: #F2F2F5; -fx-font-size: 16px; -fx-alignment: CENTER_LEFT; -fx-padding: 10;" text="Utilisateurs" />
+            <Button fx:id="Avis" onAction="#Naviguer_a_Avis" onMouseEntered="#EventsChangeStyleEntered" onMouseExited="#EventsChangeStyleExited" style="-fx-background-color: transparent; -fx-text-fill: #F2F2F5; -fx-font-size: 16px; -fx-alignment: CENTER_LEFT; -fx-padding: 10;" text="Avis" />
+            <Button fx:id="Voitures" onAction="#Naviguer_a_Voitures" onMouseEntered="#EventsChangeStyleEntered" onMouseExited="#EventsChangeStyleExited" style="-fx-background-color: transparent; -fx-text-fill: #F2F2F5; -fx-font-size: 16px; -fx-alignment: CENTER_LEFT; -fx-padding: 10;" text="Voitures" />
+            <Button fx:id="Covoiturages" onAction="#Naviguer_a_Covoiturages" onMouseEntered="#EventsChangeStyleEntered" onMouseExited="#EventsChangeStyleExited" style="-fx-background-color: transparent; -fx-text-fill: #F2F2F5; -fx-font-size: 16px; -fx-alignment: CENTER_LEFT; -fx-padding: 10;" text="Covoiturages" />
+            <Button fx:id="Paiements" onAction="#Naviguer_a_Paiements" onMouseEntered="#EventsChangeStyleEntered" onMouseExited="#EventsChangeStyleExited" style="-fx-background-color: transparent; -fx-text-fill: #F2F2F5; -fx-font-size: 16px; -fx-alignment: CENTER_LEFT; -fx-padding: 10;" text="Paiements" />
+            <Button fx:id="Notifications" onAction="#Naviguer_a_Notifications" onMouseEntered="#EventsChangeStyleEntered" onMouseExited="#EventsChangeStyleExited" style="-fx-background-color: transparent; -fx-text-fill: #F2F2F5; -fx-font-size: 16px; -fx-alignment: CENTER_LEFT; -fx-padding: 10;" text="Notifications" />
+            <Button fx:id="Parametres" onAction="#Naviguer_a_Parametres" onMouseEntered="#EventsChangeStyleEntered" onMouseExited="#EventsChangeStyleExited" style="-fx-background-color: transparent; -fx-text-fill: #F2F2F5; -fx-font-size: 16px; -fx-alignment: CENTER_LEFT; -fx-padding: 10;" text="Paramètres" />
+            <Button fx:id="ModifierProfil" onAction="#Naviguer_a_ModifierProfil" onMouseEntered="#EventsChangeStyleEntered" onMouseExited="#EventsChangeStyleExited" style="-fx-background-color: transparent; -fx-text-fill: #F2F2F5; -fx-font-size: 16px; -fx-alignment: CENTER_LEFT; -fx-padding: 10;" text="Modifier le Profil" />
+            <Button fx:id="LogOutBack" onAction="#Naviguer_a_login" onMouseEntered="#LogOutChangeStyleEntered" onMouseExited="#LogOutChangeStyleExited" style="-fx-background-color: transparent; -fx-text-fill: #F2F2F5; -fx-font-size: 16px; -fx-alignment: CENTER_LEFT; -fx-padding: 10;" text="Log Out" />
+        </VBox>
+
+        <!-- Chat Button -->
+        <Button layoutX="120.0" layoutY="740.0" style="-fx-background-color: #4A90E2; -fx-background-radius: 50; -fx-pref-width: 50; -fx-pref-height: 50;" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+    </children>
+</AnchorPane>
