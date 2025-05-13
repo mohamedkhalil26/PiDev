@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    
+    <!-- Miroirs Maven alternatifs -->
+    <mirrors>
+        <mirror>
+            <id>google-maven-central</id>
+            <name>Google Maven Central</name>
+            <url>https://maven-central.storage.googleapis.com/maven2/</url>
+            <mirrorOf>central</mirrorOf>
+        </mirror>
+    </mirrors>
+    
+    <!-- Configuration de proxy (à décommenter et configurer si nécessaire) -->
+    <!--
+    <proxies>
+        <proxy>
+            <id>optional</id>
+            <active>true</active>
+            <protocol>http</protocol>
+            <host>proxy.company.com</host>
+            <port>8080</port>
+            <username>proxyuser</username>
+            <password>proxypass</password>
+            <nonProxyHosts>localhost|127.0.0.1</nonProxyHosts>
+        </proxy>
+    </proxies>
+    -->
+    
+</settings>

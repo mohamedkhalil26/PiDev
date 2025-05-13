@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.ListeVoitureController"
+            prefHeight="600.0" prefWidth="800.0">
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #f0f0f0; -fx-padding: 10;">
+            <Label text="Gestion des Voitures" style="-fx-font-size: 20; -fx-font-weight: bold;"/>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="btnAjouter" text="Ajouter une voiture" onAction="#handleAjouterVoiture"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="10" style="-fx-padding: 10;">
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Rechercher:" />
+                <TextField fx:id="txtRecherche" promptText="Rechercher une voiture..." HBox.hgrow="ALWAYS" onKeyReleased="#handleRecherche"/>
+                <Button text="Rafraîchir" onAction="#handleRafraichir"/>
+            </HBox>
+
+            <TableView fx:id="tableVoitures" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                    <TableColumn fx:id="colUtilisateurId" text="ID Utilisateur" prefWidth="100"/>
+                    <TableColumn fx:id="colNbPlaces" text="Places" prefWidth="80"/>
+                    <TableColumn fx:id="colCouleur" text="Couleur" prefWidth="100"/>
+                    <TableColumn fx:id="colTypeVoiture" text="Type" prefWidth="120"/>
+                    <TableColumn fx:id="colCategorie" text="Catégorie" prefWidth="120"/>
+                    <TableColumn fx:id="colTypeCarburant" text="Carburant" prefWidth="100"/>
+                    <TableColumn fx:id="colActions" text="Actions" prefWidth="150"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox spacing="10" alignment="CENTER_RIGHT" style="-fx-padding: 10;">
+            <Label fx:id="lblStatus" text="Prêt" HBox.hgrow="ALWAYS"/>
+        </HBox>
+    </bottom>
+</BorderPane>

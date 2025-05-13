@@ -1,0 +1,32 @@
+package utils;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class DatabaseUtil {
+    // Configuration de la base de données
+    private static final String URL = "jdbc:mysql://localhost:3306/covoiturage?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC";
+    private static final String USER = "root";
+    private static final String PASSWORD = "";
+
+    /**
+     * Établit une connexion à la base de données
+     * @return Une connexion à la base de données
+     * @throws SQLException Si une erreur survient lors de la connexion
+     */
+    public static Connection getConnection() throws SQLException {
+        try {
+            // Charger le pilote JDBC
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            
+            // Établir la connexion
+            return DriverManager.getConnection(URL, USER, PASSWORD);
+        } catch (ClassNotFoundException e) {
+            throw new SQLException("Pilote MySQL introuvable: " + e.getMessage());
+        } catch (SQLException e) {
+            System.err.println("Erreur de connexion à la base de données: " + e.getMessage());
+            throw e;
+        }
+    }
+}

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.TestAutoEmailController"
+            prefHeight="500.0" prefWidth="700.0"
+            stylesheets="@styles/application.css">
+    <top>
+        <VBox spacing="10" style="-fx-background-color: #f0f0f0; -fx-padding: 10;">
+            <Label text="Test d'envoi automatique d'emails" style="-fx-font-size: 20; -fx-font-weight: bold;"/>
+            <Label text="Cette interface permet de tester l'envoi automatique d'emails à différents moments" />
+        </VBox>
+    </top>
+    
+    <center>
+        <VBox spacing="20" style="-fx-padding: 20;">
+            <TitledPane text="Créer un trajet avec envoi automatique d'email" expanded="true">
+                <VBox spacing="10">
+                    <GridPane hgap="10" vgap="10">
+                        <padding>
+                            <Insets top="10" right="10" bottom="10" left="10"/>
+                        </padding>
+                        
+                        <Label text="Ville de départ:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                        <TextField fx:id="txtVilleDepart" promptText="Ex: Paris" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                        
+                        <Label text="Ville d'arrivée:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                        <TextField fx:id="txtVilleArrivee" promptText="Ex: Lyon" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        
+                        <Label text="Nombre de places:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                        <TextField fx:id="txtNbPlaces" promptText="Ex: 3" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                        
+                        <Label text="Prix par place (€):" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                        <TextField fx:id="txtPrix" promptText="Ex: 25.50" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                        
+                        <Label text="Date de départ:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                        <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                            <ComboBox fx:id="cmbJour" prefWidth="60" promptText="Jour"/>
+                            <ComboBox fx:id="cmbMois" prefWidth="100" promptText="Mois"/>
+                            <ComboBox fx:id="cmbAnnee" prefWidth="80" promptText="Année"/>
+                        </HBox>
+                        
+                        <Label text="Heure de départ:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+                        <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                            <ComboBox fx:id="cmbHeure" prefWidth="60" promptText="Heure"/>
+                            <Label text="h"/>
+                            <ComboBox fx:id="cmbMinute" prefWidth="60" promptText="Min"/>
+                        </HBox>
+                    </GridPane>
+                    
+                    <HBox spacing="10" alignment="CENTER_RIGHT">
+                        <Button fx:id="btnCreerTrajet" text="Créer trajet et envoyer email" 
+                                onAction="#handleCreerTrajet" 
+                                style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+                    </HBox>
+                </VBox>
+            </TitledPane>
+            
+            <TitledPane text="Réserver un trajet avec envoi automatique d'email" expanded="true">
+                <VBox spacing="10">
+                    <GridPane hgap="10" vgap="10">
+                        <padding>
+                            <Insets top="10" right="10" bottom="10" left="10"/>
+                        </padding>
+                        
+                        <Label text="ID du trajet:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                        <TextField fx:id="txtTrajetId" promptText="Ex: 1" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                        
+                        <Label text="Nombre de places à réserver:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                        <TextField fx:id="txtPlacesReserver" promptText="Ex: 2" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                    </GridPane>
+                    
+                    <HBox spacing="10" alignment="CENTER_RIGHT">
+                        <Button fx:id="btnReserver" text="Réserver et envoyer email" 
+                                onAction="#handleReserver" 
+                                style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+                    </HBox>
+                </VBox>
+            </TitledPane>
+            
+            <TitledPane text="Simuler un rappel avant départ" expanded="true">
+                <VBox spacing="10">
+                    <GridPane hgap="10" vgap="10">
+                        <padding>
+                            <Insets top="10" right="10" bottom="10" left="10"/>
+                        </padding>
+                        
+                        <Label text="ID du trajet:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                        <TextField fx:id="txtTrajetRappelId" promptText="Ex: 1" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                    </GridPane>
+                    
+                    <HBox spacing="10" alignment="CENTER_RIGHT">
+                        <Button fx:id="btnRappel" text="Simuler rappel 24h avant départ" 
+                                onAction="#handleRappel" 
+                                style="-fx-background-color: #FF9800; -fx-text-fill: white;"/>
+                    </HBox>
+                </VBox>
+            </TitledPane>
+        </VBox>
+    </center>
+    
+    <bottom>
+        <VBox spacing="5" style="-fx-padding: 10; -fx-background-color: #f8f8f8;">
+            <Label text="Note: Les emails sont envoyés automatiquement à takwabouabid149@gmail.com" 
+                   style="-fx-font-style: italic;"/>
+            <Label fx:id="lblStatus" text="Prêt" style="-fx-font-weight: bold;"/>
+        </VBox>
+    </bottom>
+</BorderPane>

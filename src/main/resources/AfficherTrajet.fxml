@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.AfficherTrajetController"
+            prefHeight="500.0" prefWidth="600.0"
+            stylesheets="@styles/application.css">
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #f0f0f0; -fx-padding: 10;">
+            <Label text="Détails du Trajet" style="-fx-font-size: 20; -fx-font-weight: bold;"/>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true">
+            <GridPane hgap="10" vgap="15" style="-fx-padding: 20;">
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
+                </padding>
+
+                <Label text="ID:" GridPane.columnIndex="0" GridPane.rowIndex="0" style="-fx-font-weight: bold;"/>
+                <Label fx:id="lblId" text="--" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                <Label text="Ville de départ:" GridPane.columnIndex="0" GridPane.rowIndex="1" style="-fx-font-weight: bold;"/>
+                <Label fx:id="lblVilleDepart" text="--" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                <Label text="Ville d'arrivée:" GridPane.columnIndex="0" GridPane.rowIndex="2" style="-fx-font-weight: bold;"/>
+                <Label fx:id="lblVilleArrivee" text="--" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                <Label text="Date et heure de départ:" GridPane.columnIndex="0" GridPane.rowIndex="3" style="-fx-font-weight: bold;"/>
+                <Label fx:id="lblDateHeure" text="--" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+                <Label text="Nombre de places disponibles:" GridPane.columnIndex="0" GridPane.rowIndex="4" style="-fx-font-weight: bold;"/>
+                <Label fx:id="lblNbPlaces" text="--" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+                <Label text="Prix par place:" GridPane.columnIndex="0" GridPane.rowIndex="5" style="-fx-font-weight: bold;"/>
+                <Label fx:id="lblPrix" text="--" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+
+                <Label text="Conducteur:" GridPane.columnIndex="0" GridPane.rowIndex="6" style="-fx-font-weight: bold;"/>
+                <Label fx:id="lblConducteur" text="--" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+
+                <Label text="Voiture:" GridPane.columnIndex="0" GridPane.rowIndex="7" style="-fx-font-weight: bold;"/>
+                <Label fx:id="lblVoiture" text="--" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+
+                <Label text="Statut:" GridPane.columnIndex="0" GridPane.rowIndex="8" style="-fx-font-weight: bold;"/>
+                <Label fx:id="lblStatut" text="--" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+            </GridPane>
+        </ScrollPane>
+    </center>
+
+    <bottom>
+        <HBox spacing="10" alignment="CENTER_RIGHT" style="-fx-padding: 10;">
+            <Button fx:id="btnModifier" text="Modifier" onAction="#handleModifier"/>
+            <Button fx:id="btnSupprimer" text="Supprimer" onAction="#handleSupprimer" style="-fx-background-color: #f44336; -fx-text-fill: white;"/>
+            <Button fx:id="btnRetour" text="Retour" onAction="#handleRetour"/>
+        </HBox>
+    </bottom>
+</BorderPane>

@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.VoitureAppController"
+            prefHeight="600.0" prefWidth="800.0">
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #f0f0f0; -fx-padding: 10;">
+            <Label fx:id="lblTitre" text="Gestion des Voitures" style="-fx-font-size: 20; -fx-font-weight: bold;"/>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="btnRetourListe" text="Retour à la liste" onAction="#handleRetourListe" visible="false"/>
+            <Button fx:id="btnAjouter" text="Ajouter une voiture" onAction="#handleAjouterVoiture"/>
+        </HBox>
+    </top>
+
+    <center>
+        <StackPane>
+            <!-- Vue Liste des Voitures -->
+            <VBox fx:id="panelListe" spacing="10" style="-fx-padding: 10;">
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Rechercher:"/>
+                    <TextField fx:id="txtRecherche" prefWidth="200"/>
+                    <Button text="Rechercher" onAction="#handleRecherche"/>
+                    <Button text="Réinitialiser" onAction="#handleReinitialiserRecherche"/>
+                </HBox>
+
+                <TableView fx:id="tableVoitures" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                        <TableColumn fx:id="colUtilisateurId" text="ID Utilisateur" prefWidth="100"/>
+                        <TableColumn fx:id="colNbPlaces" text="Places" prefWidth="80"/>
+                        <TableColumn fx:id="colCouleur" text="Couleur" prefWidth="100"/>
+                        <TableColumn fx:id="colTypeVoiture" text="Type" prefWidth="120"/>
+                        <TableColumn fx:id="colCategorie" text="Catégorie" prefWidth="120"/>
+                        <TableColumn fx:id="colTypeCarburant" text="Carburant" prefWidth="100"/>
+                        <TableColumn fx:id="colActions" text="Actions" prefWidth="150"/>
+                    </columns>
+                </TableView>
+
+                <Label fx:id="lblStatus" text="Nombre de voitures: 0"/>
+            </VBox>
+
+            <!-- Vue Ajouter Voiture -->
+            <VBox fx:id="panelAjouter" spacing="10" style="-fx-padding: 20;" visible="false">
+                <GridPane hgap="10" vgap="10">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20"/>
+                    </padding>
+
+                    <Label text="Utilisateur:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <ComboBox fx:id="cmbUtilisateur" GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="150"/>
+
+                    <Label text="Nombre de Places:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <TextField fx:id="txtNbPlaces" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                    <Label text="Couleur:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                    <TextField fx:id="txtCouleur" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                    <Label text="Type de Voiture:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                    <ComboBox fx:id="cmbTypeVoiture" GridPane.columnIndex="1" GridPane.rowIndex="3" prefWidth="150">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <String fx:value="Berline"/>
+                                <String fx:value="SUV"/>
+                                <String fx:value="Coupé"/>
+                                <String fx:value="Cabriolet"/>
+                                <String fx:value="Monospace"/>
+                                <String fx:value="Citadine"/>
+                            </FXCollections>
+                        </items>
+                    </ComboBox>
+
+                    <Label text="Catégorie:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                    <ComboBox fx:id="cmbCategorie" GridPane.columnIndex="1" GridPane.rowIndex="4" prefWidth="150">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <String fx:value="Confort"/>
+                                <String fx:value="Économique"/>
+                                <String fx:value="Luxe"/>
+                                <String fx:value="Familiale"/>
+                                <String fx:value="Sport"/>
+                            </FXCollections>
+                        </items>
+                    </ComboBox>
+
+                    <Label text="Type de carburant:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+                    <ComboBox fx:id="cmbTypeCarburant" GridPane.columnIndex="1" GridPane.rowIndex="5" prefWidth="150">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <String fx:value="essence"/>
+                                <String fx:value="diesel"/>
+                                <String fx:value="hybride"/>
+                                <String fx:value="electrique"/>
+                            </FXCollections>
+                        </items>
+                    </ComboBox>
+                </GridPane>
+
+                <HBox spacing="10" alignment="CENTER_RIGHT" style="-fx-padding: 10;">
+                    <Button fx:id="btnAnnulerAjout" text="Annuler" onAction="#handleAnnulerAjout"/>
+                    <Button fx:id="btnEnregistrerAjout" text="Enregistrer" onAction="#handleEnregistrerAjout" 
+                            style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+                </HBox>
+            </VBox>
+
+            <!-- Vue Modifier Voiture -->
+            <VBox fx:id="panelModifier" spacing="10" style="-fx-padding: 20;" visible="false">
+                <GridPane hgap="10" vgap="10">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20"/>
+                    </padding>
+
+                    <Label text="ID:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <TextField fx:id="txtIdModif" GridPane.columnIndex="1" GridPane.rowIndex="0" editable="false"/>
+
+                    <Label text="ID Utilisateur:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <TextField fx:id="txtUtilisateurIdModif" GridPane.columnIndex="1" GridPane.rowIndex="1" editable="false"/>
+
+                    <Label text="Nombre de Places:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                    <TextField fx:id="txtNbPlacesModif" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                    <Label text="Couleur:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                    <TextField fx:id="txtCouleurModif" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+                    <Label text="Type de Voiture:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                    <ComboBox fx:id="cmbTypeVoitureModif" GridPane.columnIndex="1" GridPane.rowIndex="4" prefWidth="150">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <String fx:value="Berline"/>
+                                <String fx:value="SUV"/>
+                                <String fx:value="Coupé"/>
+                                <String fx:value="Cabriolet"/>
+                                <String fx:value="Monospace"/>
+                                <String fx:value="Citadine"/>
+                            </FXCollections>
+                        </items>
+                    </ComboBox>
+
+                    <Label text="Catégorie:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+                    <ComboBox fx:id="cmbCategorieModif" GridPane.columnIndex="1" GridPane.rowIndex="5" prefWidth="150">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <String fx:value="Confort"/>
+                                <String fx:value="Économique"/>
+                                <String fx:value="Luxe"/>
+                                <String fx:value="Familiale"/>
+                                <String fx:value="Sport"/>
+                            </FXCollections>
+                        </items>
+                    </ComboBox>
+
+                    <Label text="Type de carburant:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+                    <ComboBox fx:id="cmbTypeCarburantModif" GridPane.columnIndex="1" GridPane.rowIndex="6" prefWidth="150">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <String fx:value="essence"/>
+                                <String fx:value="diesel"/>
+                                <String fx:value="hybride"/>
+                                <String fx:value="electrique"/>
+                            </FXCollections>
+                        </items>
+                    </ComboBox>
+                </GridPane>
+
+                <HBox spacing="10" alignment="CENTER_RIGHT" style="-fx-padding: 10;">
+                    <Button fx:id="btnAnnulerModif" text="Annuler" onAction="#handleAnnulerModif"/>
+                    <Button fx:id="btnEnregistrerModif" text="Enregistrer" onAction="#handleEnregistrerModif" 
+                            style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+                </HBox>
+            </VBox>
+
+            <!-- Vue Afficher Voiture -->
+            <VBox fx:id="panelAfficher" spacing="20" style="-fx-padding: 20;" visible="false">
+                <GridPane hgap="10" vgap="10" style="-fx-padding: 20;">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20"/>
+                    </padding>
+
+                    <Label text="ID:" GridPane.columnIndex="0" GridPane.rowIndex="0" style="-fx-font-weight: bold;"/>
+                    <Label fx:id="lblIdAfficher" text="--" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                    <Label text="ID Utilisateur:" GridPane.columnIndex="0" GridPane.rowIndex="1" style="-fx-font-weight: bold;"/>
+                    <Label fx:id="lblUtilisateurIdAfficher" text="--" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                    <Label text="Nombre de Places:" GridPane.columnIndex="0" GridPane.rowIndex="2" style="-fx-font-weight: bold;"/>
+                    <Label fx:id="lblNbPlacesAfficher" text="--" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                    <Label text="Couleur:" GridPane.columnIndex="0" GridPane.rowIndex="3" style="-fx-font-weight: bold;"/>
+                    <Label fx:id="lblCouleurAfficher" text="--" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+                    <Label text="Type de Voiture:" GridPane.columnIndex="0" GridPane.rowIndex="4" style="-fx-font-weight: bold;"/>
+                    <Label fx:id="lblTypeVoitureAfficher" text="--" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+                    <Label text="Catégorie:" GridPane.columnIndex="0" GridPane.rowIndex="5" style="-fx-font-weight: bold;"/>
+                    <Label fx:id="lblCategorieAfficher" text="--" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+
+                    <Label text="Type de carburant:" GridPane.columnIndex="0" GridPane.rowIndex="6" style="-fx-font-weight: bold;"/>
+                    <Label fx:id="lblTypeCarburantAfficher" text="--" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+                </GridPane>
+                
+                <!-- Section Email API -->
+                <VBox style="-fx-padding: 10; -fx-border-color: #cccccc; -fx-border-radius: 5;">
+                    <Label text="Notifications par Email" style="-fx-font-size: 16; -fx-font-weight: bold;"/>
+                    
+                    <GridPane hgap="10" vgap="10" style="-fx-padding: 10;">
+                        <Label text="Email de destination:" GridPane.columnIndex="0" GridPane.rowIndex="0" style="-fx-font-weight: bold;"/>
+                        <TextField fx:id="txtEmail" promptText="Entrez l'adresse email" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                        
+                        <Label text="Type de notification:" GridPane.columnIndex="0" GridPane.rowIndex="1" style="-fx-font-weight: bold;"/>
+                        <ComboBox fx:id="cmbTypeNotification" GridPane.columnIndex="1" GridPane.rowIndex="1" prefWidth="200">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Confirmation de réservation"/>
+                                    <String fx:value="Rappel avant départ"/>
+                                    <String fx:value="Notification d'entretien"/>
+                                </FXCollections>
+                            </items>
+                        </ComboBox>
+                        
+                        <Button fx:id="btnEnvoyerEmail" text="Envoyer Email Test" onAction="#handleEnvoyerEmail" 
+                                style="-fx-background-color: #2196F3; -fx-text-fill: white;" 
+                                GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                        
+                        <Label fx:id="lblStatusEmail" text="" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="2"/>
+                    </GridPane>
+                    
+                    <Label text="Historique des emails" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-padding: 5 0 0 0;"/>
+                    <ListView fx:id="listViewEmails" prefHeight="100" VBox.vgrow="ALWAYS"/>
+                </VBox>
+
+                <HBox spacing="10" alignment="CENTER_RIGHT" style="-fx-padding: 10;">
+                    <Button fx:id="btnModifierAfficher" text="Modifier" onAction="#handleModifierDepuisAfficher"/>
+                    <Button fx:id="btnSupprimerAfficher" text="Supprimer" onAction="#handleSupprimerDepuisAfficher" 
+                            style="-fx-background-color: #f44336; -fx-text-fill: white;"/>
+                    <Button fx:id="btnRetourAfficher" text="Retour" onAction="#handleRetourListe"/>
+                </HBox>
+            </VBox>
+        </StackPane>
+    </center>
+</BorderPane>

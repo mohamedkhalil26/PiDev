@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.EmpreinteCarboneController"
+            prefHeight="500.0" prefWidth="700.0"
+            stylesheets="@styles/application.css">
+    <top>
+        <VBox spacing="10" style="-fx-background-color: #f0f0f0; -fx-padding: 15;">
+            <Label text="Empreinte Carbone des Trajets" style="-fx-font-size: 20; -fx-font-weight: bold;"/>
+            <Label text="Calculez l'impact environnemental de vos trajets" style="-fx-font-size: 14;"/>
+        </VBox>
+    </top>
+    
+    <center>
+        <SplitPane dividerPositions="0.4" orientation="HORIZONTAL">
+            <VBox spacing="15" style="-fx-padding: 15;">
+                <TitledPane text="Sélection du trajet" expanded="true">
+                    <VBox spacing="10">
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <Label text="Trajet:" />
+                            <ComboBox fx:id="cmbTrajets" prefWidth="250" />
+                        </HBox>
+                        <Button fx:id="btnCalculer" text="Calculer l'empreinte carbone" 
+                                onAction="#handleCalculer" 
+                                style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+                    </VBox>
+                </TitledPane>
+                
+                <TitledPane text="Simulation personnalisée" expanded="true">
+                    <GridPane hgap="10" vgap="10">
+                        <padding>
+                            <Insets top="10" right="10" bottom="10" left="10"/>
+                        </padding>
+                        
+                        <Label text="Ville de départ:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                        <TextField fx:id="txtVilleDepart" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                        
+                        <Label text="Ville d'arrivée:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                        <TextField fx:id="txtVilleArrivee" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        
+                        <Label text="Type de carburant:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                        <ComboBox fx:id="cmbTypeCarburant" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="essence"/>
+                                    <String fx:value="diesel"/>
+                                    <String fx:value="hybride"/>
+                                    <String fx:value="electrique"/>
+                                </FXCollections>
+                            </items>
+                        </ComboBox>
+                        
+                        <Label text="Nombre de passagers:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                        <Spinner fx:id="spnNbPassagers" min="1" max="8" initialValue="1" 
+                                 GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                        
+                        <Button fx:id="btnSimuler" text="Simuler" onAction="#handleSimuler" 
+                                style="-fx-background-color: #2196F3; -fx-text-fill: white;"
+                                GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                    </GridPane>
+                </TitledPane>
+            </VBox>
+            
+            <VBox spacing="15" style="-fx-padding: 15;">
+                <TitledPane text="Résultats" expanded="true">
+                    <VBox spacing="10">
+                        <GridPane hgap="10" vgap="10" styleClass="result-grid">
+                            <padding>
+                                <Insets top="10" right="10" bottom="10" left="10"/>
+                            </padding>
+                            
+                            <Label text="Distance:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                            <Label fx:id="lblDistance" text="0 km" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                            
+                            <Label text="Émissions par km:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                            <Label fx:id="lblEmissionsParKm" text="0 g CO2/km" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                            
+                            <Label text="Émissions totales:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                            <Label fx:id="lblEmissionsTotales" text="0 kg CO2" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                            
+                            <Label text="Arbres nécessaires:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                            <Label fx:id="lblArbres" text="0 arbres" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                            
+                            <Label text="Économies CO2:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                            <Label fx:id="lblEconomies" text="0 kg CO2" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                            
+                            <Label text="Économies (%):" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+                            <Label fx:id="lblEconomiesPct" text="0%" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+                        </GridPane>
+                        
+                        <PieChart fx:id="chartEmissions" title="Répartition des émissions" 
+                                  legendVisible="true" labelsVisible="true"/>
+                    </VBox>
+                </TitledPane>
+            </VBox>
+        </SplitPane>
+    </center>
+    
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" style="-fx-padding: 10; -fx-background-color: #f0f0f0;">
+            <Button fx:id="btnFermer" text="Fermer" onAction="#handleFermer"/>
+        </HBox>
+    </bottom>
+</BorderPane>

@@ -1,0 +1,130 @@
+/* Styles généraux */
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 13px;
+    -fx-background-color: #f8f8f8;
+}
+
+/* En-têtes */
+.header-section {
+    -fx-background-color: #3498db;
+    -fx-padding: 15px;
+}
+
+.header-section .label {
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+/* Boutons */
+.button {
+    -fx-background-radius: 4px;
+    -fx-padding: 8px 15px;
+    -fx-cursor: hand;
+}
+
+.button-primary {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+}
+
+.button-primary:hover {
+    -fx-background-color: #45a049;
+}
+
+.button-secondary {
+    -fx-background-color: #2196F3;
+    -fx-text-fill: white;
+}
+
+.button-secondary:hover {
+    -fx-background-color: #0b7dda;
+}
+
+.button-danger {
+    -fx-background-color: #f44336;
+    -fx-text-fill: white;
+}
+
+.button-danger:hover {
+    -fx-background-color: #d32f2f;
+}
+
+/* TableView */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #ddd;
+    -fx-border-width: 1px;
+}
+
+.table-view .column-header {
+    -fx-background-color: #f2f2f2;
+    -fx-font-weight: bold;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: #f9f9f9;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #d3e9ff;
+}
+
+/* Formulaires */
+.form-container {
+    -fx-spacing: 10px;
+    -fx-padding: 20px;
+}
+
+.form-field {
+    -fx-spacing: 5px;
+}
+
+.form-field .label {
+    -fx-font-weight: bold;
+}
+
+.text-field, .combo-box, .date-picker {
+    -fx-pref-height: 30px;
+    -fx-background-color: white;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 3px;
+}
+
+.text-field:focused, .combo-box:focused, .date-picker:focused {
+    -fx-border-color: #3498db;
+}
+
+/* Status bar */
+.status-bar {
+    -fx-background-color: #f0f0f0;
+    -fx-padding: 5px 10px;
+    -fx-border-width: 1px 0 0 0;
+    -fx-border-color: #ddd;
+}
+
+/* Styles spécifiques pour les trajets */
+.trajet-card {
+    -fx-background-color: white;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 5px;
+    -fx-padding: 15px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 1);
+}
+
+.trajet-status-planifie {
+    -fx-text-fill: #2196F3;
+}
+
+.trajet-status-en-cours {
+    -fx-text-fill: #FF9800;
+}
+
+.trajet-status-termine {
+    -fx-text-fill: #4CAF50;
+}
+
+.trajet-status-annule {
+    -fx-text-fill: #f44336;
+}

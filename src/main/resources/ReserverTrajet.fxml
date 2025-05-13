@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.ReserverTrajetController"
+            prefHeight="400.0" prefWidth="600.0"
+            stylesheets="@styles/application.css">
+    <top>
+        <VBox spacing="10" style="-fx-background-color: #f0f0f0; -fx-padding: 15;">
+            <Label text="Réserver des places" style="-fx-font-size: 20; -fx-font-weight: bold;"/>
+            <Label text="Réservez des places sur un trajet existant" style="-fx-font-size: 14;"/>
+        </VBox>
+    </top>
+    
+    <center>
+        <VBox spacing="20" style="-fx-padding: 20;">
+            <GridPane hgap="10" vgap="10">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                
+                <Label text="Trajet:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <ComboBox fx:id="cmbTrajet" prefWidth="300" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                
+                <Label text="Nombre de places:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <Spinner fx:id="spnNombrePlaces" min="1" max="10" initialValue="1" 
+                         editable="true" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                
+                <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <TextField fx:id="txtEmail" promptText="Votre adresse email" 
+                           prefWidth="300" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+            </GridPane>
+            
+            <TitledPane text="Détails du trajet" expanded="true">
+                <GridPane hgap="10" vgap="10">
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10"/>
+                    </padding>
+                    
+                    <Label text="Départ:" GridPane.columnIndex="0" GridPane.rowIndex="0" style="-fx-font-weight: bold;"/>
+                    <Label fx:id="lblDepart" text="--" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                    
+                    <Label text="Arrivée:" GridPane.columnIndex="0" GridPane.rowIndex="1" style="-fx-font-weight: bold;"/>
+                    <Label fx:id="lblArrivee" text="--" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                    
+                    <Label text="Date et heure:" GridPane.columnIndex="0" GridPane.rowIndex="2" style="-fx-font-weight: bold;"/>
+                    <Label fx:id="lblDateHeure" text="--" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                    
+                    <Label text="Places disponibles:" GridPane.columnIndex="0" GridPane.rowIndex="3" style="-fx-font-weight: bold;"/>
+                    <Label fx:id="lblPlacesDisponibles" text="--" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                    
+                    <Label text="Prix par place:" GridPane.columnIndex="0" GridPane.rowIndex="4" style="-fx-font-weight: bold;"/>
+                    <Label fx:id="lblPrix" text="--" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                    
+                    <Label text="Prix total:" GridPane.columnIndex="0" GridPane.rowIndex="5" style="-fx-font-weight: bold;"/>
+                    <Label fx:id="lblPrixTotal" text="--" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+                </GridPane>
+            </TitledPane>
+        </VBox>
+    </center>
+    
+    <bottom>
+        <HBox spacing="10" alignment="CENTER_RIGHT" style="-fx-padding: 15; -fx-background-color: #f0f0f0;">
+            <Label fx:id="lblStatus" HBox.hgrow="ALWAYS"/>
+            <Button fx:id="btnReserver" text="Réserver" onAction="#handleReserver" 
+                    style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+            <Button fx:id="btnAnnuler" text="Annuler" onAction="#handleAnnuler"/>
+        </HBox>
+    </bottom>
+</BorderPane>

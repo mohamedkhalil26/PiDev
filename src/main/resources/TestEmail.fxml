@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.TestEmailController"
+            prefHeight="400.0" prefWidth="600.0"
+            stylesheets="@styles/application.css">
+    <top>
+        <VBox spacing="10" style="-fx-background-color: #f0f0f0; -fx-padding: 10;">
+            <Label text="Test d'envoi d'emails" style="-fx-font-size: 20; -fx-font-weight: bold;"/>
+            <Label text="Utilisez cette interface pour tester l'envoi d'emails via SendGrid" />
+        </VBox>
+    </top>
+    
+    <center>
+        <GridPane hgap="10" vgap="15" style="-fx-padding: 20;">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            
+            <Label text="Email du destinataire:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <TextField fx:id="txtEmail" promptText="exemple@domaine.com" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            
+            <Label text="Sujet:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <TextField fx:id="txtSujet" promptText="Sujet de l'email" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            
+            <Label text="Message:" GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.valignment="TOP"/>
+            <TextArea fx:id="txtMessage" promptText="Contenu de l'email (HTML supporté)" 
+                      prefHeight="150" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+            
+            <HBox spacing="10" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                <Button fx:id="btnEnvoyer" text="Envoyer l'email" onAction="#handleEnvoyer" 
+                        style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+                <Button fx:id="btnAnnuler" text="Annuler" onAction="#handleAnnuler"/>
+            </HBox>
+        </GridPane>
+    </center>
+    
+    <bottom>
+        <VBox spacing="5" style="-fx-padding: 10; -fx-background-color: #f8f8f8;">
+            <Label text="Note: Vous devez configurer votre clé API SendGrid dans la classe EmailService" 
+                   style="-fx-font-style: italic;"/>
+            <Label fx:id="lblStatus" text="Prêt à envoyer" style="-fx-font-weight: bold;"/>
+        </VBox>
+    </bottom>
+</BorderPane>

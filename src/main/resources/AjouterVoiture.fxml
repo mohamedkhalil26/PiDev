@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.AjouterVoitureController"
+            prefHeight="400.0" prefWidth="600.0">
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #f0f0f0; -fx-padding: 10;">
+            <Label text="Ajouter une Voiture" style="-fx-font-size: 20; -fx-font-weight: bold;"/>
+        </HBox>
+    </top>
+
+    <center>
+        <GridPane hgap="10" vgap="10" style="-fx-padding: 20;">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <Label text="Utilisateur:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <ComboBox fx:id="cmbUtilisateur" GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="150"/>
+
+            <Label text="Nombre de Places:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <TextField fx:id="txtNbPlaces" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+            <Label text="Couleur:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <TextField fx:id="txtCouleur" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+            <Label text="Type de Voiture:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+            <ComboBox fx:id="cmbTypeVoiture" GridPane.columnIndex="1" GridPane.rowIndex="3" prefWidth="150">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Berline"/>
+                        <String fx:value="SUV"/>
+                        <String fx:value="Coupé"/>
+                        <String fx:value="Cabriolet"/>
+                        <String fx:value="Monospace"/>
+                        <String fx:value="Citadine"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+
+            <Label text="Catégorie:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+            <ComboBox fx:id="cmbCategorie" GridPane.columnIndex="1" GridPane.rowIndex="4" prefWidth="150">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Confort"/>
+                        <String fx:value="Économique"/>
+                        <String fx:value="Luxe"/>
+                        <String fx:value="Familiale"/>
+                        <String fx:value="Sport"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+
+            <Label text="Type de carburant:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+            <ComboBox fx:id="cmbTypeCarburant" GridPane.columnIndex="1" GridPane.rowIndex="5" prefWidth="150">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="essence"/>
+                        <String fx:value="diesel"/>
+                        <String fx:value="hybride"/>
+                        <String fx:value="electrique"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+        </GridPane>
+    </center>
+
+    <bottom>
+        <HBox spacing="10" alignment="CENTER_RIGHT" style="-fx-padding: 10;">
+            <Button fx:id="btnAnnuler" text="Annuler" onAction="#handleAnnuler"/>
+            <Button fx:id="btnEnregistrer" text="Enregistrer" onAction="#handleEnregistrer" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+        </HBox>
+    </bottom>
+</BorderPane>
